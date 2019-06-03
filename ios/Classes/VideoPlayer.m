@@ -63,7 +63,10 @@
         //_videoPlayer.view.frame = CGRectMake(0, 20, 300, 400 * 9/16.0);
         _videoPlayer.view.frame = CGRectMake(x, y, width, height);
         _videoPlayer.autoPlayWhenPlayStatusIsReadyToPlay = NO;
+        _videoPlayer.controlLayerAutoAppearWhenAssetInitialized = YES;
         _videoPlayer.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:url]];
+        
+        //[_videoPlayer controlLayerNeedAppear];
         
         //[_videoPlayer needHiddenStatusBar];
         //[_videoPlayer pause];
