@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_video_player/flutter_video_player.dart';
-import 'package:flutter_video_player_example/video_player_page.dart';
+import 'video_player_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +14,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
 
+  VideoPlayerPageController controller;
+
+  void _onVideoPlayerPageControllerCreated(VideoPlayerPageController _controller){
+    controller = _controller;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -24,37 +29,33 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await FlutterVideoPlayer.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    //double width = MediaQuery.of(context).size.width;
-
-    print('------------');
-    //print(width);
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: VideoPlayerPage(url: 'http://sxjapp.com/1.mp4',x: 0, y: 0,),
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              child: VideoPlayerPage(
+              x: 0, y: 0,
+              onVideoPlayerPageWidgetCreated: _onVideoPlayerPageControllerCreated,
+              ),
+            ),
+            FlatButton(child: Text('播放'),onPressed: (){
+              controller.start(<String, dynamic>{
+                'url': 'https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4',
+              });
+            },)
+
+          ],
+        )
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 typedef void VideoPlayerPageWidgetCreatedCallback(VideoPlayerPageController controller);
 
 class VideoPlayerPageController {
@@ -11,24 +10,21 @@ class VideoPlayerPageController {
 
   final MethodChannel _channel;
 
+  Future<void> start(args) async {
+    return _channel.invokeMethod('start',args);
+  }
 }
 
 class VideoPlayerPage extends StatefulWidget{
 
-  final String url;
   final int x;
   final int y;
-//  final int width;
-//  final int height;
 
   const VideoPlayerPage({
     Key key,
     this.onVideoPlayerPageWidgetCreated,
-    this.url,
     this.x,
     this.y,
-//    this.width,
-//    this.height
 
   }):super(key:key);
 
@@ -47,7 +43,6 @@ class _VideoPlayerPageState extends State<VideoPlayerPage>{
 
   @override
   Widget build(BuildContext context) {
-    print(widget.url);
     double width = MediaQuery.of(context).size.width;
     print(width);
 
@@ -56,7 +51,6 @@ class _VideoPlayerPageState extends State<VideoPlayerPage>{
         viewType: "plugins/video_player",
         onPlatformViewCreated:_onPlatformViewCreated,
         creationParams: <String,dynamic>{
-          "url": widget.url,
           "x": widget.x,
           "y": widget.y,
           "width": width,
