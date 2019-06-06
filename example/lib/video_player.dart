@@ -15,16 +15,20 @@ class VideoPlayerPageController {
   }
 }
 
-class VideoPlayerPage extends StatefulWidget{
+class VideoPlayer extends StatefulWidget{
 
   final int x;
   final int y;
+  final int width;
+  final int height;
 
-  const VideoPlayerPage({
+  const VideoPlayer({
     Key key,
     this.onVideoPlayerPageWidgetCreated,
     this.x,
     this.y,
+    this.width,
+    this.height
 
   }):super(key:key);
 
@@ -33,12 +37,12 @@ class VideoPlayerPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _VideoPlayerPageState();
+    return _VideoPlayerState();
   }
 
 }
 
-class _VideoPlayerPageState extends State<VideoPlayerPage>{
+class _VideoPlayerState extends State<VideoPlayer>{
 
 
   @override
@@ -53,8 +57,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage>{
         creationParams: <String,dynamic>{
           "x": widget.x,
           "y": widget.y,
-          "width": width,
-          "height": width*9/16,
+          "width": widget.width,
+          "height": widget.height,
           "hidesWhenStopped": true,
 
         },
