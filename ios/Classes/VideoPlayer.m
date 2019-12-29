@@ -74,7 +74,7 @@
         /// 设置退到后台继续播放
         self.player.pauseWhenAppResignActive = NO;
                 
-        
+
         self.player.orientationDidChanged = ^(ZFPlayerController * _Nonnull player, BOOL isFullScreen) {
             if(isFullScreen){
                 [[UIApplication sharedApplication] setStatusBarHidden:YES];
@@ -91,7 +91,7 @@
         [_channel setMethodCallHandler:^(FlutterMethodCall *  call, FlutterResult  result) {
             [weakSelf onMethodCall:call result:result];
         }];
-        
+
     }
     
     return self;

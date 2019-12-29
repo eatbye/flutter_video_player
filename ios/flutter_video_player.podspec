@@ -15,7 +15,7 @@ A new Flutter plugin.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'ZFPlayer'
+  s.dependency 'ZFPlayer', '3.2.16'
   s.dependency 'ZFPlayer/ControlView'
   s.dependency 'ZFPlayer/AVPlayer'
   s.dependency 'KTVHTTPCache'

@@ -4,27 +4,27 @@ PODS:
   - flutter_video_player (0.0.1):
     - Flutter
     - KTVHTTPCache
-    - ZFPlayer
+    - ZFPlayer (= 3.2.16)
     - ZFPlayer/AVPlayer
     - ZFPlayer/ControlView
   - KTVCocoaHTTPServer (1.0.0):
     - CocoaAsyncSocket
   - KTVHTTPCache (2.0.0):
     - KTVCocoaHTTPServer
-  - ZFPlayer (3.2.11):
-    - ZFPlayer/Core (= 3.2.11)
-  - ZFPlayer/AVPlayer (3.2.11):
+  - ZFPlayer (3.2.16):
+    - ZFPlayer/Core (= 3.2.16)
+  - ZFPlayer/AVPlayer (3.2.16):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.11):
+  - ZFPlayer/ControlView (3.2.16):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.11)
+  - ZFPlayer/Core (3.2.16)
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `Flutter`)
   - flutter_video_player (from `.symlinks/plugins/flutter_video_player/ios`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - CocoaAsyncSocket
     - KTVCocoaHTTPServer
     - KTVHTTPCache
@@ -32,18 +32,18 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: Flutter
   flutter_video_player:
     :path: ".symlinks/plugins/flutter_video_player/ios"
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_video_player: b6c504d2d223034eecdaf26a6427de8ba55975c0
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_video_player: deb9513e7a18152110f93272a0c5d89067daae5f
   KTVCocoaHTTPServer: df8d7b861e603ff8037e9b2138aca2563a6b768d
   KTVHTTPCache: d794fc52c7df58ec7991e0ac4dfe1c938c99bfd8
-  ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
+  ZFPlayer: fbae8477ec9a83f644bd8890e92e7871f37a587d
 
-PODFILE CHECKSUM: e8988baac3a50f787b9d3ed7ca44957b442f92a7
+PODFILE CHECKSUM: 3dbe063e9c90a5d7c9e4e76e70a821b9e2c1d271
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
